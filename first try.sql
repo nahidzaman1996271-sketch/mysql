@@ -21,7 +21,9 @@ VALUES
 (106, "karim",  78, "B", "Sylhet");
 
 SELECT DISTINCT city FROM student;
-
-SELECT city, avg(marks)
+SELECT city
 FROM student
-GROUP BY city;
+WHERE grade = "A"
+GROUP BY city
+HAVING MAX(marks) >= 90
+ORDER BY city ASC
