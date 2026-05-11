@@ -1,26 +1,27 @@
+DROP DATABASE IF EXISTS college;
 CREATE DATABASE college;
 USE college;
 
 CREATE TABLE student (
-  rollno INT PRIMARY KEY,
-  name VARCHAR(50)
-);  
-
-SELECT * FROM student;
-
-CREATE TABLE temp1 (
-   id INT, 
-   name VARCHAR(50),
-   age int,
-   city VARCHAR(20),
-   PRIMARY KEY( name, id)
+    rollno INT PRIMARY KEY,
+    name VARCHAR(50),
+    marks INT NOT NULL,
+    grade VARCHAR(1),
+    city VARCHAR(20)
 );
 
-CREATE TABLE emp (
-id INT,
-salary INT DEFAULT 25000);
+INSERT INTO student
+(rollno, name, marks, grade, city)
+VALUES
+(101, "anil",   85, "A", "Mumbai"),
+(102, "nahid",  72, "B", "Dhaka"),
+(103, "mashuk", 60, "C", "Chittagong"),
+(104, "ravi",   90, "A", "Delhi"),
+(105, "sofia",  55, "D", "Pune"),
+(106, "karim",  78, "B", "Sylhet");
 
-INSERT INTO emp (id) VALUES (101);
-SELECT * FROM emp;
+SELECT DISTINCT city FROM student;
 
-
+SELECT city, avg(marks)
+FROM student
+GROUP BY city;
