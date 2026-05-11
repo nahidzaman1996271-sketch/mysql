@@ -1,16 +1,26 @@
 CREATE DATABASE college;
-
 USE college;
 
 CREATE TABLE student (
- id INT PRIMARY KEY,
- name VARCHAR(50),
- age INT NOT NULL
+  rollno INT PRIMARY KEY,
+  name VARCHAR(50)
+);  
+
+SELECT * FROM student;
+
+CREATE TABLE temp1 (
+   id INT, 
+   name VARCHAR(50),
+   age int,
+   city VARCHAR(20),
+   PRIMARY KEY( name, id)
 );
 
+CREATE TABLE emp (
+id INT,
+salary INT DEFAULT 25000);
 
-INSERT INTO student VALUES(1, "NAHID", 26);
-INSERT INTO student VALUES(2, "Mashuk", 24);
-INSERT INTO student VALUES(3, "Mash", 29);
+INSERT INTO emp (id) VALUES (101);
+SELECT * FROM emp;
 
-SELECT * FROM  student;
+
