@@ -3,27 +3,30 @@ CREATE DATABASE college;
 USE college;
 
 
-CREATE TABLE student (
-    rollno INT PRIMARY KEY,
-    name VARCHAR(50),
-    marks INT NOT NULL,
-    grade VARCHAR(1),
-    city VARCHAR(20)
+CREATE TABLE student(
+id INT PRIMARY KEY,
+name VARCHAR(50)
 );
 
-INSERT INTO student
- (rollno, name, marks, grade, city)
- VALUES
-(101, "anil",   85, "A", "Mumbai"),
-(102, "nahid",  72, "B", "Dhaka"),
-(103, "mashuk", 60, "C", "Chittagong"),
-(104, "ravi",   90, "A", "Delhi"),
-(105, "sofia",  55, "D", "Pune"),
-(106, "karim",  78, "B", "Sylhet");
+INSERT INTO student (id, name)
+VALUES
+(101, "nahid"),
+(102, "ifti"),
+(103, "johirul");
 
-SELECT * FROM student;
+CREATE TABLE course(
+id INT PRIMARY KEY,
+course VARCHAR(50)
+);
 
-ALTER TABLE stu 
-RENAME TO student;
+INSERT INTO course (id, course)
+VALUES
+(102, "english"),
+(103, "math"),
+(105, "science"),
+(107, "computer science");
 
-
+SELECT *
+FROM student
+INNER JOIN course
+ON student.id = course.id;
